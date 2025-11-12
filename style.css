@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.background-image {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: url(./assets/moon-landing-page.jpg), url(./assets/moon-4476029_1920.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+.landing__img--dark{
+    position: absolute;
+    width: 102vw;
+    top: 0 ;
+    left: 0;
+    transform: translateX(-30px);
+    display: no
+}
+
+.landing__img--light {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    display: none
+}
+.landing__img--lightbackground {
+    transform: scale(125%);
+}.landing__img--light {
+    transform: translateY(-225px);
+
+}
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    padding-top: 24px;
+    font-family: 'Arial', sans-serif;}
+nav {
+    height: 75px;
+    background-color: rgb(23, 32, 58);
+    ;
+    z-index: 20;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-links {
+    display: flex;
+    font-size: 24px;
+    list-style: none;
+    margin-right: 20px;
+    align-items: center;
+}
+.nav__link {
+    padding: 0 20px;
+    color: tomato;
+    text-decoration: none;
+}
+header {
+    color: white;
+    position: absolute;
+    left: 27.5%;
+}
+
+.landing {
+    margin: 0 auto;
+    color: aliceblue;
+}
+.banner {
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 150px;
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+    
+}
+.banner .slider {
+    width: 6.25em;
+    height: 9.375em;
+    position: absolute;
+    top: 30%;
+    left: calc(52.5% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(62.5em);
+    animation: autoRun 30s linear infinite;
+}
+@keyframes autoRun {
+    from {
+        transform: perspective(62.5em) rotateX(-18deg) rotateY(0deg);
+    }
+    to {
+        transform: perspective(75em) rotateX(-18deg) rotateY(360deg);
+    }
+}
+.banner .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: rotateY(calc( (var(--position) - 1) * (360deg / var(--quantity)))) translateZ(34.375em);
+}
+
+.banner .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.title {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
