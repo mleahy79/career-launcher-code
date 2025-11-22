@@ -9,25 +9,33 @@
     height: 100vh;
     top: 0;
     left: 0;
-    background: url(./assets/moon-landing-page.jpg), url(./assets/moon-4476029_1920.jpg);
     background-size: cover;
     background-position: center;
     z-index: -1;
+    visibility: ;
 }
+.landing__facade--dark,
 .landing__img--dark{
     position: absolute;
     width: 102vw;
     top: 0 ;
     left: 0;
     transform: translateX(-30px);
-    display: no
+    visibility: visible;
+}
+.light__imgs--wrapper {
+    visibility: hidden;
+}
+
+.facade__img--light {
+    position: absolute;
 }
 
 .landing__img--light {
-    position: absolute;
+    position: relative;
     width: 100vw;
     height: auto;
-    display: none
+    visibility: hidden ;
 }
 .landing__img--lightbackground {
     transform: scale(125%);
@@ -35,12 +43,22 @@
     transform: translateY(-225px);
 
 }
+.hghlt {
+    color: tomato;
+}
 h1 {
     font-size: 3rem;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     padding-top: 24px;
     font-family: 'Arial', sans-serif;}
+
+/*
+                                                              NAV
+*/       
+
+
+
 nav {
     height: 75px;
     background-color: rgb(23, 32, 58);
@@ -49,6 +67,7 @@ nav {
     position: relative;
     display: flex;
     justify-content: space-between;
+    border: solid 2px red;
 }
 .nav-links {
     display: flex;
@@ -68,6 +87,12 @@ header {
     left: 27.5%;
 }
 
+/*
+                                                             LANDING
+*/
+
+
+
 .landing {
     margin: 0 auto;
     color: aliceblue;
@@ -81,6 +106,7 @@ header {
     text-align: center;
     overflow: hidden;
     position: absolute;
+    border: solid 2px green;
     
 }
 .banner .slider {
@@ -92,6 +118,7 @@ header {
     transform-style: preserve-3d;
     transform: perspective(62.5em);
     animation: autoRun 30s linear infinite;
+    position: absolute;
 }
 @keyframes autoRun {
     from {
@@ -112,6 +139,15 @@ header {
     height: 100%;
     object-fit: cover;
 }
+/*
+                                                         JOB-SEARCH
+*/
+.slogan {
+
+
+    border: solid 2px yellow;
+}
+
 .title {
     margin-top: 20px;
     text-align: center;
