@@ -1,157 +1,214 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.background-image {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    visibility: ;
-}
-.landing__facade--dark,
-.landing__img--dark{
-    position: absolute;
-    width: 102vw;
-    top: 0 ;
-    left: 0;
-    transform: translateX(-30px);
-    visibility: visible;
-}
-.light__imgs--wrapper {
-    visibility: hidden;
-}
-
-.facade__img--light {
-    position: absolute;
-}
-
-.landing__img--light {
-    position: relative;
-    width: 100vw;
-    height: auto;
-    visibility: hidden ;
-}
-.landing__img--lightbackground {
-    transform: scale(125%);
-}.landing__img--light {
-    transform: translateY(-225px);
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .hghlt {
-    color: tomato;
+  color: tomato;
 }
 h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    padding-top: 24px;
-    font-family: 'Arial', sans-serif;}
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  padding-top: 24px;
+  font-family: "Arial", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
 
 /*
                                                               NAV
-*/       
-
-
+*/
 
 nav {
-    height: 75px;
-    background-color: rgb(23, 32, 58);
-    ;
-    z-index: 20;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    border: solid 2px red;
+  width: 98%;
+  height: 75px;
+  align-self: self-center;
+  background-color: rgb(48, 77, 123);
+  z-index: 902;
+  margin: 1rem 1rem 0;
+  border-radius: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px tomato;
+  position: fixed;
+  z-index: 999;
+}
+.nav-title {
+  color: aliceblue;
+  font-size: 24px;
+  padding-left: 2rem;
+  opacity: 1;
+  z-index: 999;
 }
 .nav-links {
-    display: flex;
-    font-size: 24px;
-    list-style: none;
-    margin-right: 20px;
-    align-items: center;
+  display: flex;
+  font-size: 24px;
+  list-style: none;
+  margin-right: 20px;
+  align-items: center;
+  z-index: 999;
 }
 .nav__link {
-    padding: 0 20px;
-    color: tomato;
-    text-decoration: none;
-}
-header {
-    color: white;
-    position: absolute;
-    left: 27.5%;
+  padding: 0 20px;
+  color: tomato;
+  text-decoration: none;
+  z-index: 999;
 }
 
 /*
-                                                             LANDING
+LANDING
 */
 
-
-
-.landing {
-    margin: 0 auto;
-    color: aliceblue;
+#landing {
+  width: 100%;
+  margin: 0 auto;
+  color: aliceblue;
 }
-.banner {
-    width: 100%;
-    height: 100vh;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 150px;
-    text-align: center;
-    overflow: hidden;
+header {
+  width: 100%;
+  top: 12%;  
+  color: white;
+  position: absolute;
+}
+
+.background__img--container {
+  width: 100%;
+}
+.land-wrap {
+  background-image: url("./assets/moon-4476029_1280\(2\).png");
+  width: 100%;
+  top: 0;
+  display: flex;
+  background-size: 127.5%;
+  background-position: 54.5% 28%;
+  z-index: 1;
+  visibility: visible;
+  position: static;
+  padding-bottom: 1.5rem;
+}
+
+.landing__facade--light {
     position: absolute;
-    border: solid 2px green;
-    
+    transform: scale(132%);
+    display: flex;
+    z-index:  900;
+    top: -0.25%;
+    left: 1%;
+}
+
+.facade__img--light {
+  transform: scale(132%);
+  position: absolute;
+  display: block; 
+  visibility: visible;
+}
+
+.landing__img--darkbackground {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  z-index: 199;
+  display: flex;
+  position: static;
+}
+
+.landing__img--dark {
+  width: 105.5vw;  
+  top: -3%;
+  left: -2%;
+  transform: translateX(-1.75%);
+  object-fit: cover;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  position: absolute;
+  visibility: hidden;
+}
+.facade__img--dark {
+  width: 103.5vw;
+  z-index: 950;
+  position: absolute;
+  top: -3%;
+  left: -3.15%;
+  visibility: hidden;
+}
+
+
+
+
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  margin-top: 0;
+  padding-top: 150px;
+  text-align: center;
+  overflow: hidden;
 }
 .banner .slider {
-    width: 6.25em;
-    height: 9.375em;
-    position: absolute;
-    top: 30%;
-    left: calc(52.5% - 100px);
-    transform-style: preserve-3d;
-    transform: perspective(62.5em);
-    animation: autoRun 30s linear infinite;
-    position: absolute;
+  width: 6.25em;
+  height: 9.375em;
+  top: 45%;
+  left: -50%;
+  left: calc(52.5% - 100px);
+  transform-style: preserve-3d;
+  transform: perspective(62.5em);
+  animation: autoRun 30s linear infinite;
+  position: absolute;
+  z-index: 200;
 }
 @keyframes autoRun {
-    from {
-        transform: perspective(62.5em) rotateX(-18deg) rotateY(0deg);
-    }
-    to {
-        transform: perspective(75em) rotateX(-18deg) rotateY(360deg);
-    }
+  from {
+    transform: perspective(62.5em) rotateX(-18deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(62.5em) rotateX(-18deg) rotateY(360deg);
+  }
 }
 .banner .slider .item {
-    position: absolute;
-    inset: 0 0 0 0;
-    transform: rotateY(calc( (var(--position) - 1) * (360deg / var(--quantity)))) translateZ(34.375em);
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: 999;
+  transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity))))
+    translateZ(34.375em);
 }
 
 .banner .slider .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 10;
 }
 /*
                                                          JOB-SEARCH
 */
 .slogan {
-
-
-    border: solid 2px yellow;
+  width: 100%;
+  letter-spacing: .25em;
+  word-spacing: .75em;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;  
+  height: auto;
+  font-size: 2.5rem;
+  position: absolute;
+  margin: 1rem 0;  
 }
 
 .title {
-    margin-top: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+#job-search {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.
