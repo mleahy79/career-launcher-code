@@ -1,50 +1,59 @@
-let toggleDarkMode = false;
+let darkModeToggle = false;
 
 
-function darkModeToggle() {
-    toggleDarkMode = !toggleDarkMode
-   if (toggleDarkMode) {
-    document.body.classList.add("dark");
+function toggleDarkMode() {
+    darkModeToggle = !darkModeToggle
+   if (darkModeToggle) {
+    document.body.classList.add("dark-mode");
    }
    
    else {
-    document.body.classList.remove("dark");
+    document.body.classList.remove("dark-mode");
     
 }
 }
 
 
 
-const data = null;
 
-const xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+fetch('https://api.openwebninja.com/jsearch/search?query=developer+jobs+in+chicago&page=1&num_pages=1&country=us&language=en&date_posted=today&work_from_home=false&employment_types=FULLTIME&job_requirements=no_experience&radius=1&exclude_job_publishers=BeeBe%2CDice&fields=employer_name%2Cjob_publisher%2Cjob_title%2Cjob_country', {
+  headers: {
+    'x-api-key': ak_ykts7xy35pjfj5jqsezjrhbdqvhdu4vf1sssty4s7dhrzgj
+  }
+})
+//ak_ykts7xy35pjfj5jqsezjrhbdqvhdu4vf1sssty4s7dhrzgj//
+    .then(response => response.json())
+    .then(data => {
+        const jobsContainer = document.getElementById('jobs-container');
+        data.results.forEach(job => {
+            const jobElement = document.createElement('div');
+            jobElement.classList.add('job');
 
-xhr.addEventListener('readystatechange', function () {
-	if (this.readyState === this.DONE) {
-		console.log(this.responseText);
-	}
-});
+            jobElement.innerHTML = `
+                <h2>${job.job_title}</h2>
+                <p><strong>Company:</strong> ${job.employer_name}</p>
+                <p><strong>Location:</strong> ${job.job_country}</p>
+                <p><strong>Publisher:</strong> ${job.job_publisher}</p>
+            `;
 
-xhr.open('GET', 'https://jsearch.p.rapidapi.com/search?query=developer%20jobs%20in%20chicago&page=1&num_pages=1&country=us&date_posted=all');
-xhr.setRequestHeader('x-rapidapi-key', '01e4b7440cmsh2b61c116d432172p1b6401jsn405fdd030609');
-xhr.setRequestHeader('x-rapidapi-host', 'jsearch.p.rapidapi.com');
+            jobsContainer.appendChild(jobElement);
+        });
+    })
+    .catch(error => console.error('Error fetching job data:', error));  
 
-xhr.send(data);
-  bottom: 0.05%
-  const data = null;
+    
+    
+    
+    
+    
+    /*const settings = {
+  async: true,
+  crossDomain: true,
+  url: 'https://api.openwebninja.com/jsearch/search',
+  method: 'GET',
+  headers: {}
+};
 
-const xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener('readystatechange', function () {
-	if (this.readyState === this.DONE) {
-		console.log(this.responseText);
-	}
-});
-
-xhr.open('GET', 'https://jsearch.p.rapidapi.com/search?query=developer%20jobs%20in%20chicago&page=1&num_pages=1&country=us&date_posted=all');
-xhr.setRequestHeader('x-rapidapi-key', '01e4b7440cmsh2b61c116d432172p1b6401jsn405fdd030609');
-xhr.setRequestHeader('x-rapidapi-host', 'jsearch.p.rapidapi.com');
-
-xhr.send(data)
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});*/
