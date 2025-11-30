@@ -13,11 +13,10 @@
   </head>
   <body>
     <nav>
-      <span class="nav-title">
-        <h2>Welcome to <span class="hghlt">Career Launch Codes</span></h2>
+      <span class="nav-slogan">
+        <span class="slogan">AD LUNAM ET ULTRA</span>
       </span>
       <div class="switch-btn">
-        
         <figure class="switch-imgs">
           <span class="i-1">
             <i class="fa-regular fa-sun"></i>
@@ -25,9 +24,9 @@
           <span class="space"></span>
           <span class="i-2">
             <i class="fa-regular fa-moon"></i>
-          </span>  
+          </span>
         </figure>
-        <input type="checkbox" class="virtual-btn" onclick="toggleDarkMode()">
+        <input type="checkbox" class="virtual-btn" onclick="toggleDarkMode()" />
         <span class="circle"></span>
       </div>
       <ul class="nav-links">
@@ -42,12 +41,16 @@
       <div id="landing">
         <div class="land-wrap">
           <header>
-            <p class="slogan">AD LUNAM ET ULTRA</p>
+            <span class="logo">
+              <img
+                src="./assets/logo.img.fin3.png"
+                class="logo-img"
+                alt="Career Launcher Code Logo"
+              />
+            </span>
           </header>
-     
-          
 
-     
+
           <div class="background__img--container">
             <div class="banner">
               <div class="slider" style="--quantity: 8">
@@ -112,7 +115,7 @@
         </div>
       </div>
     </main>
-    <div id="job-search" onclick="toggleDarkMode()">
+    <section id="job-search">
       <div class="job__search--title">
         <h1>
           <span class="hghlt">Launch</span> Your New Career Start Searching
@@ -135,43 +138,64 @@
           </figure>
         </div>
       </div>
-    <h1 class="job__search--input">JOB SEARCH</h1> 
-    <p class="job__search--inst">Enter the job title, location, job detail, and salary below.</p>     
-    </div>
-   
-    <div class="search__input">
-      <span class="query"> 
-    WHAT IS THE JOB TITLE YOU ARE PERSUING?
-  </span>
-  <textarea class="search-bar" placeholder="Job Title"></textarea>
-  <button class="search-btn">SEARCH JOBS</button>
-   </div> 
-    
-    <div class="search__input">
-      <span class="query"> 
-    WHAT DETAILS YOU ARE LOOKING FOR IN YOUR FUTURE EMPLOYMENT?
-  </span>
-  <textarea class="search-bar" placeholder="Job Details"></textarea>
-  <button class="search-btn">SEARCH DETAILS</button>
-  </div>
-    
-    <div class="search__input">
-      <span class="query"> 
-    WHAT IS THE SALARY YOU ARE PERSUING?
-  </span>
-  <textarea class="search-bar" placeholder="Job salary"></textarea>
-  <button class="search-btn">SEARCH SALARY</button>
-  </div> 
-    
-    <div class="search__input">
-      <span class="query"> 
-    WHERE IS THE DO WANT WOULD YOU LIKE TO SEARCH?
-  </span>
-  <textarea class="search-bar" placeholder="Remote, Country, City, State?"></textarea>
-  <button class="search-btn">SEARCH LOCATION</button>
-    </div>
-    <footer>
-      <p>&copy; 2024 Career Launcher Code. All rights reserved.</p>
-    </footer>
+      
+      <h1 class="job__search--input">JOB SEARCH</h1>
+      <p class="job__search--inst">
+        Enter the job title, location, job detail, and salary below.
+      </p>
+      <div class="job__search--row">
+        <div class="search__input--column">
+          <div class="search__input">
+            <span class="query"> WHAT IS THE JOB TITLE YOU ARE PERSUING? </span>
+            <textarea class="search-bar" placeholder="Job Title" inputmode="full-width-latin"></textarea>
+          </div>
+          
+          <div class="search__input">
+            <span class="query">
+              WHAT DETAILS YOU ARE LOOKING FOR IN YOUR FUTURE EMPLOYMENT?
+            </span>
+            <textarea class="search-bar" placeholder="Job Details" inputmode="full-width-latin"></textarea>
+          </div>
+          
+          <div class="search__input">
+            <span class="query"> WHAT IS THE SALARY YOU ARE PERSUING? </span>
+            <textarea class="search-bar" placeholder="Job salary" inputmode="full-width-latin"></textarea>
+          </div>
+          
+          <div class="search__input">
+            <span class="query"> WHERE IS THE LOCATION YOU WANT TO SEARCH? </span>
+            <textarea
+            class="search-bar"
+            placeholder="Remote, Country, City, State?" inputmode="full-width-latin"
+            ></textarea>
+          </div>
+          <button class="search-btn">SEARCH JOBS</button>
+        </div>
+        <span class="job-search-img--container">
+          <img
+          src="./assets/launcher-search.jpg"
+          class="job-search--img" inputmode="full-width-latin"
+          alt="Job Search Illustration"
+          />
+        </div>
+        </section>
+        
+        <section id="learning">
+          <div class="learning__title">
+            <h1>
+              <span class="hghlt">Enhance</span> Your Skills with Our Learning
+              Resources
+            </h1>
+          </div>
+          <div class="learning__desc">
+            <p>
+              Explore a variety of courses, tutorials, and articles to boost your
+              career prospects.
+            </p>
+          </div>
+      <footer>
+        <p>&copy; 2024 Career Launcher Code. All rights reserved.</p>
+      </footer>
+    </section>
   </body>
 </html>

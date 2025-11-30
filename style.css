@@ -9,7 +9,7 @@
 h1 {
   font-size: 3rem;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px aliceblue;
+  text-shadow: 2px 2px 4px rgb(208, 200, 204);
   padding-top: 24px;
   font-family: "Arial", sans-serif;
 }
@@ -17,16 +17,28 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: rgb(63, 146, 228);
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 body .dark-mode {
   background-color: rgb(10, 14, 22);
   visibility: visible;
 }
+.logo {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 10rem;
+  z-index: 1000;
 
+}
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 999;
+}
 /*
-                                                              NAV
+                                                                              NAV
 */
 
 nav {
@@ -34,10 +46,10 @@ nav {
   height: 75px;
   align-self: self-center;
   background-color: rgb(48, 77, 123);
+  background-blend-mode: luminosity;
   z-index: 902;
   margin: 1rem 1rem 0;
   border-radius: 1rem;
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,12 +57,18 @@ nav {
   position: fixed;
   z-index: 999;
 }
-.nav-title {
-  color: aliceblue;
+.nav-slogan {
+  width: 40%;
+  min-height: 75px;
+  color: tomato;
   font-size: 24px;
-  padding-left: 2rem;
   opacity: 1;
-  z-index: 999;
+  position: inherited;
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  z-index: 900;
 }
 .nav-links {
   display: flex;
@@ -68,9 +86,6 @@ nav {
   cursor: pointer;
 }
 
-/*
-LANDING
-*/
 .switch-btn {
   position: relative;
   left: 20px;
@@ -83,9 +98,9 @@ LANDING
   display: flex;
   gap: 3rem;
   justify-content: center;
-
+  
   align-items: center;
-  color: aliceblue;
+  color: rgb(208, 200, 204);
   font-size: 20px;
   z-index: 700;
 }
@@ -117,7 +132,7 @@ LANDING
   border-radius: 18px;
   transition: left 400ms ease-in;
 }
- .virtual-btn {
+.virtual-btn {
   position: absolute;
   left: 0;
   right: 0;
@@ -126,38 +141,56 @@ LANDING
   z-index: 975;
   cursor: pointer;
   appearance: none;
- }
- .virtual-btn:checked + .circle {
+}
+.virtual-btn:checked + .circle {
   left: 32px;
- }
+}
 
+/*
+                                                                          LANDING
+*/
 
+.slogan {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  letter-spacing: 0.35rem;
+  word-spacing: 0.5em;
+  font-weight: 900;
+  height: auto;
+  font-size: 2rem;
+  position: absolute;
+}
 
 
 
 #landing {
   width: 100%;
   margin: 0 auto;
-  color: aliceblue;
+  color: rgb(208, 200, 204);
 }
 header {
   width: 100%;
-  top: 12%;  
-  color: white;
+  top: 12%;
+  color: rgb(208, 200, 204);
   position: absolute;
-  z-index: 700;
+  z-index: 700;display: flex;
+  display: flex;
+  justify-content: center;
 }
 
 .background__img--container {
   width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 .land-wrap {
   background-image: url("./assets/moon-4476029_1280\(2\).png");
   width: 100%;
   top: 0;
   display: flex;
-  background-size: 125.5%;
-  background-position: 54.75% 29%;
+  background-size: 125%;
+  background-position: 54.75% 31%;
   z-index: 1;
   visibility: visible;
   position: static;
@@ -167,16 +200,16 @@ header {
 
 .landing__facade--light {
     position: absolute;
-    transform: scale(129%);
+    transform: scale(131%);
     display: flex;
     z-index:  400;
-    top: -0.25%;
-    left: 2.25%;
+    top: 1.25%;
+    left: 1.5%;
 }
 
 
 .facade__img--light {
-  transform: scale(129%);
+  transform: scale(130%);
   position: absolute;
   display: block; 
   visibility: visible;
@@ -192,12 +225,13 @@ header {
   z-index: 199;
   display: flex;
   position: static;
+  overflow: hidden;
 }
 
 .landing__img--dark {
   width: 105.5vw; 
   height: auto; 
-  top: -3%;
+  top: -1%;
   left: -2%;
   transform: translateX(-1.75%);
   object-fit: cover;
@@ -211,7 +245,8 @@ header {
   width: 103.5vw;
   z-index: 500;
   position: absolute;
-  top: -3%;
+  overflow: hidden;
+  top: -1%;
   left: -3.15%;
   visibility: hidden;
 }
@@ -266,20 +301,8 @@ header {
   z-index: 10;
 }
 /*
-                                                         JOB-SEARCH
+                                                                     JOB-SEARCH
 */
-.slogan {
-  width: 100%;
-  letter-spacing: .25em;
-  word-spacing: .75em;
-  font-weight: 900;
-  display: flex;
-  justify-content: center;  
-  height: auto;
-  font-size: 2.5rem;
-  position: absolute;
-  margin: 1rem 0;  
-}
 
 .title {
   margin-top: 20px;
@@ -290,15 +313,17 @@ header {
   color: aliceblue;
 }
 #job-search {
-  background: rgb(80. 144, 224);
+  background: linear-gradient (to bottom, rgb(80, 144, 224),  rgb(208, 200, 204), aliceblue);
+  border-radius: 16px;
+  border: solid 1px tomato;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 1.5rem;
+  margin: 0 1.5rem;
+  width: 100%;
 }
-#job-search .dark-mode {
+ .dark-mode #job-search {
   background: rgb(10, 14, 22);
 }
 .job__search--title {
@@ -312,7 +337,7 @@ header {
   justify-content: center;
   width: 500px;
   background-color: aliceblue;
-  height: 2.5rem;
+  height: 1.5rem;
   align-items: center;
   border: solid 1px #242242;
   border-radius: 8px;
@@ -328,15 +353,24 @@ header {
   align-items: center;
   left:  0;
 }
+.job__search--row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
 
 .search__input {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
+  
   margin: 1rem 0;
   width: 80%;
   max-width: 600px;
-  margin-top: 3rem;
+  margin-top: 1.25rem;
 }
 .search-bar {
   width: 100%;
@@ -361,9 +395,9 @@ header {
   background-color: rgb(255, 99, 71);
 } 
 .search__input .query {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight: 600;
   color: aliceblue;
 }
 .dark-mode .search-bar {
@@ -377,3 +411,11 @@ header {
 .dark-mode .search-btn:hover {
   background-color: rgb(255, 99, 71);
 } 
+.job__search--img--continer {
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
