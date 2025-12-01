@@ -39,6 +39,7 @@ async function searchChange(event) {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
+    
     console.log(result);
   } catch (error) {
     console.error(error);
@@ -47,11 +48,20 @@ async function searchChange(event) {
 
 const searchJobs = () => {
   const searchInput = document.getElementById('job-search-input');
- // if (!searchInput || !searchInput.value) {
-  //   alert('Please enter a job search query');
-  //   return;
-  // }
+  if (!searchInput || !searchInput.value) {
+    alert('Please enter a job search query');
+    return;
+  }
 
   const query = searchInput.value;
   searchChange({ target: { value: query } });
 };
+
+function showSearchResults() {
+  query.innerHTML = showSearchResults.map(result => {
+    return `<div class="job-result">
+      <h3>${result.title}</h3>
+      <p>${result.company_name} - ${result.location}</p>
+      <a href="${result.job_link}" target="_blank">View Job</a>
+    </div>`;
+  }).join('');

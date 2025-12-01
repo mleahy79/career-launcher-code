@@ -407,7 +407,7 @@ body.dark .landing__img--light {
 }
 .dark .search-bar {
   background-color: rgb(30, 30, 30);
-  color: aliceblue;
+  color:  aliceblue;
   border: 2px solid tomato;
 }
 .dark .search-btn {
@@ -423,4 +423,20 @@ body.dark .landing__img--light {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.fes {
+  background-color: rgb(36,36, 36);
+  color: rgb(242, 238, 240);
+  width: 98%;
+  margin : 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  border: solid 1px tomato;
+  border-radius: 16px;
+}
+.ad-desc {
+  width: 100%;
+  padding: 1rem;
+  font-size: 2rem;
+  line-height: 1.5;
 }
