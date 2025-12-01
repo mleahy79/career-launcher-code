@@ -50,7 +50,6 @@
             </span>
           </header>
 
-
           <div class="background__img--container">
             <div class="banner">
               <div class="slider" style="--quantity: 8">
@@ -138,7 +137,7 @@
           </figure>
         </div>
       </div>
-      
+
       <h1 class="job__search--input">JOB SEARCH</h1>
       <p class="job__search--inst">
         Enter the job title, location, job detail, and salary below.
@@ -147,52 +146,74 @@
         <div class="search__input--column">
           <div class="search__input">
             <span class="query"> WHAT IS THE JOB TITLE YOU ARE PERSUING? </span>
-            <textarea class="search-bar" placeholder="Job Title" inputmode="full-width-latin"></textarea>
+            <textarea
+              class="search-bar"
+              placeholder="Job Title"
+              inputmode="full-width-latin"
+              onchange="searchChange(event)"
+            ></textarea>
           </div>
-          
+
           <div class="search__input">
             <span class="query">
               WHAT DETAILS YOU ARE LOOKING FOR IN YOUR FUTURE EMPLOYMENT?
             </span>
-            <textarea class="search-bar" placeholder="Job Details" inputmode="full-width-latin"></textarea>
-          </div>
-          
-          <div class="search__input">
-            <span class="query"> WHAT IS THE SALARY YOU ARE PERSUING? </span>
-            <textarea class="search-bar" placeholder="Job salary" inputmode="full-width-latin"></textarea>
-          </div>
-          
-          <div class="search__input">
-            <span class="query"> WHERE IS THE LOCATION YOU WANT TO SEARCH? </span>
             <textarea
-            class="search-bar"
-            placeholder="Remote, Country, City, State?" inputmode="full-width-latin"
+              class="search-bar"
+              placeholder="Job Details"
+              inputmode="full-width-latin"
+              onchange="searchChange(event)"
             ></textarea>
           </div>
-          <button class="search-btn">SEARCH JOBS</button>
+
+          <div class="search__input">
+            <span class="query"> WHAT IS THE SALARY YOU ARE PERSUING? </span>
+            <textarea
+              class="search-bar"
+              placeholder="Job salary"
+              inputmode="full-width-latin"
+              onchange="searchChange(event)"
+            ></textarea>
+          </div>
+
+          <div class="search__input">
+            <span class="query">
+              WHERE IS THE LOCATION YOU WANT TO SEARCH?
+            </span>
+            <textarea
+              class="search-bar"
+              placeholder="Remote, Country, City, State?"
+              inputmode="full-width-latin
+              onchange="searchChange(event)"
+            ></textarea>
+            <button class="search__btn" onclick="searchJobs()">
+              SEARCH JOBS
+            </button>
+          </div>
         </div>
         <span class="job-search-img--container">
           <img
-          src="./assets/launcher-search.jpg"
-          class="job-search--img" inputmode="full-width-latin"
-          alt="Job Search Illustration"
+            src="./assets/launcher-search.jpg"
+            class="job-search--img"
+            alt="Job Search Illustration"
           />
-        </div>
-        </section>
-        
-        <section id="learning">
-          <div class="learning__title">
-            <h1>
-              <span class="hghlt">Enhance</span> Your Skills with Our Learning
-              Resources
-            </h1>
-          </div>
-          <div class="learning__desc">
-            <p>
-              Explore a variety of courses, tutorials, and articles to boost your
-              career prospects.
-            </p>
-          </div>
+        </span>
+      </div>
+    </section>
+
+    <section id="learning">
+      <div class="learning__title">
+        <h1>
+          <span class="hghlt">Enhance</span> Your Skills with Our Learning
+          Resources
+        </h1>
+      </div>
+      <div class="learning__desc">
+        <p>
+          Explore a variety of courses, tutorials, and articles to boost your
+          career prospects.
+        </p>
+      </div>
       <footer>
         <p>&copy; 2024 Career Launcher Code. All rights reserved.</p>
       </footer>

@@ -1,59 +1,57 @@
 let darkModeToggle = false;
 
+// Load saved preference on page load
+window.addEventListener('load', () => {
+  const savedDarkMode = localStorage.getItem('dark') === '1';
+  if (savedDarkMode) {
+    document.body.classList.add('dark');
+    darkModeToggle = true;
+    const checkbox = document.querySelector('.virtual-btn');
+    if (checkbox) checkbox.checked = true;
+  }
+});
 
 function toggleDarkMode() {
-    darkModeToggle = !darkModeToggle
-   if (darkModeToggle) {
-    document.body.classList.add("dark-mode");
-   }
-   
-   else {
-    document.body.classList.remove("dark-mode");
-    
-}
-}
-
-
-
-
-fetch('https://api.openwebninja.com/jsearch/search?query=developer+jobs+in+chicago&page=1&num_pages=1&country=us&language=en&date_posted=today&work_from_home=false&employment_types=FULLTIME&job_requirements=no_experience&radius=1&exclude_job_publishers=BeeBe%2CDice&fields=employer_name%2Cjob_publisher%2Cjob_title%2Cjob_country', {
-  headers: {
-    'x-api-key': ak_ykts7xy35pjfj5jqsezjrhbdqvhdu4vf1sssty4s7dhrzgj
+  darkModeToggle = !darkModeToggle;
+  if (darkModeToggle) {
+    document.body.classList.add('dark');
+    localStorage.setItem('dark', '1');
+  } else {
+    document.body.classList.remove('dark');
+    localStorage.setItem('dark', '0');
   }
-})
-//ak_ykts7xy35pjfj5jqsezjrhbdqvhdu4vf1sssty4s7dhrzgj//
-    .then(response => response.json())
-    .then(data => {
-        const jobsContainer = document.getElementById('jobs-container');
-        data.results.forEach(job => {
-            const jobElement = document.createElement('div');
-            jobElement.classList.add('job');
+}
 
-            jobElement.innerHTML = `
-                <h2>${job.job_title}</h2>
-                <p><strong>Company:</strong> ${job.employer_name}</p>
-                <p><strong>Location:</strong> ${job.job_country}</p>
-                <p><strong>Publisher:</strong> ${job.job_publisher}</p>
-            `;
+// API Key for RapidAPI JSearch
+//const API_KEY = 'ak_ykts7xy35pjfj5jqsezjrhbdqvhdu4vf1sssty4s7dhrzgj';
 
-            jobsContainer.appendChild(jobElement);
-        });
-    })
-    .catch(error => console.error('Error fetching job data:', error));  
+async function searchChange(event) {
+  const query = event.target.value;
+  let url = `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(query)}&'ak_ykts7xy35pjfj5jqsezjrhbdqvhdu4vf1sssty4s7dhrzgj'page=1&num_pages=1&country=us&date_posted=all`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-key': '01e4b7440cmsh2b61c116d432172p1b6401jsn405fdd030609',
+      'x-rapidapi-host': 'jsearch.p.rapidapi.com'
+    }
+  };
 
-    
-    
-    
-    
-    
-    /*const settings = {
-  async: true,
-  crossDomain: true,
-  url: 'https://api.openwebninja.com/jsearch/search',
-  method: 'GET',
-  headers: {}
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const searchJobs = () => {
+  const searchInput = document.getElementById('job-search-input');
+ // if (!searchInput || !searchInput.value) {
+  //   alert('Please enter a job search query');
+  //   return;
+  // }
+
+  const query = searchInput.value;
+  searchChange({ target: { value: query } });
 };
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});*/
