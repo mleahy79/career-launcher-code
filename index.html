@@ -15,9 +15,8 @@
     <nav>
       <span class="nav-slogan">
         <span class="slogan">AD LUNAM ET ULTRA</span>
-      </span>
-      <div class="switch-btn">
-        <figure class="switch-imgs">
+        <div class="switch-btn">
+         <figure class="switch-imgs">
           <span class="i-1">
             <i class="fa-regular fa-sun"></i>
           </span>
@@ -25,91 +24,129 @@
           <span class="i-2">
             <i class="fa-regular fa-moon"></i>
           </span>
-        </figure>
-        <input type="checkbox" class="virtual-btn" onclick="toggleDarkMode()" />
-        <span class="circle"></span>
+         </figure>
+         <input type="checkbox" class="virtual-btn" onclick="toggleDarkMode()" />
+         <span class="circle"></span>
+       </div>
+      </span>
+       <ul class="nav-links">
+        <li><a href="#" class="nav__link">Job Search</a></li>
+        <li><a href="#" class="nav__link">Learning</a></li>
+        <li><a href="#" class="nav__link">Interview Prep</a></li>
+        <li><a href="#" class="nav__link">Start-Ups</a></li>
+        <li><a href="#" class="nav__link">Get Started</a></li>
+        </ul>
+       <button class="btn__menu" onclick=" openMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+     </nav>
+      <div class="menu">
+        <div class="icon__wrapper">
+          <button class="btn__menu btn__menu-close" onclick="closeMenu()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="menu__links">
+          <a href="#job-search" class="menu__link" onclick=" closeMenu()">Job Search</a>
+          <a href="#learning" class="menu__link" onclick=" closeMenu()"
+            >Learning</a
+          >
+          <a href="#interview-prep" class="menu__link" onclick=" closeMenu()"
+            >Interview Prep</a
+          >
+          <a href="#start-ups" class="menu__link" onclick=" closeMenu()">Start-Ups</a>
+          <a
+            href="#get-started"
+            class="menu__link menu__link--primary"
+            onclick=" closeMenu()"
+            >Get</a
+          >
+        </div>
       </div>
-      <ul class="nav-links">
-        <li><a href="#Job-Search" class="nav__link">Job Search</a></li>
-        <li><a href="#Learning" class="nav__link">Learning</a></li>
-        <li><a href="#Interview-Prep" class="nav__link">Interview Prep</a></li>
-        <li><a href="#Start-Ups" class="nav__link">Start-Ups</a></li>
-        <li><a href="#Get-Started" class="nav__link">Get Started</a></li>
-      </ul>
-    </nav>
+
     <main>
       <div id="landing">
-        <div class="land-wrap">
-          <header>
-            <span class="logo">
-              <img
-                src="./assets/logo.img.fin3.png"
-                class="logo-img"
-                alt="Career Launcher Code Logo"
-              />
-            </span>
-          </header>
-
-          <div class="background__img--container">
-            <div class="banner">
-              <div class="slider" style="--quantity: 8">
-                <div class="item" style="--position: 1">
-                  <img src="./assets/html.png" alt="" />
-                </div>
-                <div class="item" style="--position: 2">
-                  <img src="./assets/s.png " alt="" />
-                </div>
-                <div class="item" style="--position: 3">
+            <div class="land-wrap">
+              <header>
+                <span class="logo">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/240px-CSS3_logo.svg.png"
-                    alt=""
+                  src="./assets/logo.icon.5.png"
+                  class="logo-img"
+                  alt="Career Launcher Code Logo"
                   />
-                </div>
-                <div class="item" style="--position: 4">
-                  <img src="./assets/mysql.png" alt="" />
-                </div>
-                <div class="item" style="--position: 5">
-                  <img src="./assets/javascript.png" alt="" />
-                </div>
-                <div class="item" style="--position: 6">
-                  <img src="./assets/visual-studio.png" alt="" />
-                </div>
-                <div class="item" style="--position: 7">
-                  <img src="./assets/react copy.png" alt="" />
-                </div>
-                <div class="item" style="--position: 8">
-                  <img src="./assets/sql.png" alt="" />
-                </div>
-              </div>
-            </div>
+                </span>
+              </header>
 
-            <figure
-              class="landing__img--darkbackground"
-              onclick="toggleDarkMode()"
-            >
-              <img
+              
+              <div class="background__img--container">
+                <div class="banner">
+                  <div class="slider" style="--quantity: 8">
+                    <div class="item" style="--position: 1">
+                      <img src="./assets/html.png" alt="" />
+                    </div>
+                    <div class="item" style="--position: 2">
+                      <img src="./assets/s.png " alt="" />
+                    </div>
+                    <div class="item" style="--position: 3">
+                      <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/240px-CSS3_logo.svg.png"
+                      alt=""
+                      />
+                    </div>
+                    <div class="item" style="--position: 4">
+                      <img src="./assets/mysql.png" alt="" />
+                    </div>
+                    <div class="item" style="--position: 5">
+                      <img src="./assets/javascript.png" alt="" />
+                    </div>
+                    <div class="item" style="--position: 6">
+                      <img src="./assets/visual-studio.png" alt="" />
+                    </div>
+                    <div class="item" style="--position: 7">
+                      <img src="./assets/react copy.png" alt="" />
+                    </div>
+                    <div class="item" style="--position: 8">
+                      <img src="./assets/sql.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                
+                <figure
+                class="landing__img--darkbackground"
+                onclick="toggleDarkMode()"
+                >
+                <img
                 src="./assets/moon-landing-page.jpg"
                 class="landing__img--dark"
                 alt="Background Image"
-              />
-            </figure>
-
-            <figure class="landing__facade--dark" onclick="toggleDarkMode()">
-              <img
+                />
+              </figure>
+              
+              <figure class="landing__facade--dark" onclick="toggleDarkMode()">
+                <img
                 src="./assets/moon-landing-page(1).png"
                 class="facade__img--dark"
                 onclick="toggleDarkMode"
                 alt="background image overlay 3d effecrt dark-mode"
-              />
-            </figure>
-            <figure class="landing__facade--light" onclick="toggleDarkMode()">
-              <img
-                src="./assets/moon-4476029_1280(f).png"
-                class="facade__img--light"
-                onclick="toggleDarkMode()"
-                alt="background image overlay 3d effect light-mode"
-              />
-            </figure>
+                />
+              </figure>
+              <figure class="bg__light-container">
+                <figure class="landing__img--lightbackground" onclick="toggleDarkMode()">
+                  <img
+                  src="./assets/moon-4476029_1280(2).png"
+                  class="landing__img--light"
+                  alt="Light Mode Background Image"
+                  />
+                </figure>
+                  <figure class="landing__facade--light" onclick="toggleDarkMode()">
+                    <img
+                    src="./assets/moon-4476029_1280(f).png"
+                    class="facade__img--light"
+                    onclick="toggleDarkMode()"
+                    alt="background image overlay 3d effect light-mode"
+                    />
+                  </figure>
+              </figure>
           </div>
         </div>
       </div>
@@ -121,70 +158,52 @@
           <span class="hghlt">Today</span>
         </h1>
       </div>
-      <div class="job__search--desc" onclick="toggleDarkMode()">
-        <p></p>
-        <div class="rating-container">
-          <span class="bold">GREAT</span>
-          <figure class="rating__stars--img">
-            <img src="./assets/trust-pilot-rating.svg" class="stars--img" />
-          </figure>
-          <span> 4.1 OUT OF 5 STARS</span>
-          <figure class="trust-pilot__logo">
-            <img
-              src="./assets/trust-pilot-black.svg"
-              class="trust-pilot__img"
-            />
-          </figure>
-        </div>
-      </div>
-
-      <h1 class="job__search--input">JOB SEARCH</h1>
-      <p class="job__search--inst">
-        Enter the job title, location, job detail, and salary below.
-      </p>
       <div class="job__search--row">
         <div class="search__input--column">
+          <div class="job__search--desc" onclick="toggleDarkMode()">
+            <h1 class="job__search--input">JOB SEARCH</h1>
+            <p class="job__search--inst">
+              Enter the job title, location, job detail, and salary below.
+            </p>
+          </div>
           <div class="search__input">
             <span class="query"> WHAT IS THE JOB TITLE YOU ARE PERSUING? </span>
             <textarea
-              class="search-bar"
-              placeholder="Job Title"
-              inputmode="full-width-latin"
-              onchange="searchChange(event)"
+            class="search-bar"
+            placeholder="Job Title"
+            inputmode="full-width-latin"
+            onchange="searchChange(event)"
             ></textarea>
           </div>
-
+          
           <div class="search__input">
-            <span class="query">
-              WHAT DETAILS YOU ARE LOOKING FOR IN YOUR FUTURE EMPLOYMENT?
-            </span>
+            <span class="query"> WHAT TECHNOLOGIES ARE YOU SKILLED IN? </span>
             <textarea
-              class="search-bar"
-              placeholder="Job Details"
-              inputmode="full-width-latin"
-              onchange="searchChange(event)"
+            class="search-bar"
+            placeholder="Job Details"
+            inputmode="full-width-latin"
+            onchange="searchChange(event)"
             ></textarea>
           </div>
-
+          
           <div class="search__input">
             <span class="query"> WHAT IS THE SALARY YOU ARE PERSUING? </span>
             <textarea
-              class="search-bar"
-              placeholder="Job salary"
-              inputmode="full-width-latin"
-              onchange="searchChange(event)"
+            class="search-bar"
+            placeholder="Job salary"
+            inputmode="full-width-latin"
+            onchange="searchChange(event)"
             ></textarea>
           </div>
-
           <div class="search__input">
             <span class="query">
               WHERE IS THE LOCATION YOU WANT TO SEARCH?
             </span>
             <textarea
-              class="search-bar"
-              placeholder="Remote, Country, City, State?"
-              inputmode="full-width-latin
-              onchange="searchChange(event)"
+            class="search-bar"
+            placeholder="Remote, Country, City, State?"
+            inputmode="full-width-latin"
+            onchange="searchChange(event)"
             ></textarea>
             <button class="search__btn" onclick="searchJobs()">
               SEARCH JOBS
@@ -193,12 +212,33 @@
         </div>
         <span class="job-search-img--container">
           <img
-            src="./assets/launcher-search.jpg"
-            class="job-search--img"
-            alt="Job Search Illustration"
+          src="./assets/launcher-search.jpg"
+          class="job-search--img"
+          alt="Job Search Illustration"
           />
         </span>
-      </div>
+       </div>
+        <div class="trstplt">
+          <div class="rating-container">
+            <span class="bold">GREAT</span>
+            <figure class="rating__stars--img">
+              <img src="./assets/trust-pilot-rating.svg" class="stars--img" />
+            </figure>
+            <span> 4.1 OUT OF 5 STARS</span>
+            <figure class="trust-pilot__logo">
+              <img
+              src="./assets/trust-pilot-black.svg"
+              class="trust-pilot__img"
+              />
+            </figure>
+          </div>
+        </div>
+
+       <div
+        id="job-results-container"
+        class="job-results-container"
+        style="display: none"
+      ></div>
     </section>
 
     <section id="learning">
@@ -211,24 +251,36 @@
       <div class="learning__desc">
         <p>
           Explore a variety of courses, tutorials, and articles to boost your
-          career prospects.
+          career prospects. There are resources for all skill levels, from
+          beginners to advanced professionals. The options range from free to
+          paid content, allowing you to choose what fits your needs best. Here
+          are some suggestions.
         </p>
-        <div class="fes">
-          <figure class="fes__img">
-            <img src="./assets/fes3.png" alt="Learning Resources" />
-          </figure>
-          <div class="cta">
-
-            <h2 class="ad-desc">
-              The fastest way to a tech career.
-            </h2>
-            <p class="ad__desc--para">
-              Our programs are designed to get you job-ready in months, not years. With
-              hands-on projects, you'll
-              gain the skills and confidence needed to launch your tech career quickly.
-            </p>
-            <button class="cta__btn">EXPLORE LEARNING</button>
-          </div>
+        <div class="suggested__couses">
+          <ul>
+          <li>Web Development Bootcamp</li>
+          <p class="web-dev">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur cumque quod libero nihil, exercitationem, ab tenetur rerum deserunt veritatis mollitia officiis perspiciatis, ducimus id esse harum eos! Culpa, voluptate vero.</p>
+          <li>Data Science and Machine Learning</li>
+          <p class="data-science">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur cumque quod libero nihil, exercitationem, ab tenetur rerum deserunt veritatis mollitia officiis perspiciatis, ducimus id esse harum eos! Culpa, voluptate vero.</p>
+          <li>UI/UX Design Fundamentals</li>
+          <p class="ui-ux">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur cumque quod libero nihil, exercitationem, ab tenetur rerum deserunt veritatis mollitia officiis perspiciatis, ducimus id esse harum eos! Culpa, voluptate vero.</p>
+          <li>Cloud Computing with AWS</li>
+          <p class="cloud-computing">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur cumque quod libero nihil, exercitationem, ab tenetur rerum deserunt veritatis mollitia officiis perspiciatis, ducimus id esse harum eos! Culpa, voluptate vero.</p>
+        </ul>
+      </div>
+      </div>
+      <div class="fes">
+        <figure class="fes__img">
+          <img src="./assets/fes3.png" alt="Learning Resources" />
+        </figure>
+        <div class="cta">
+          <h2 class="ad-desc">The fastest way to a tech career.</h2>
+          <p class="ad__desc--para">
+            Our programs are designed to get you job-ready in months, not years.
+            With hands-on projects, you'll gain the skills and confidence needed
+            to launch your tech career quickly.
+          </p>
+          <button class="cta__btn">START HERE</button>
         </div>
       </div>
       <footer>

@@ -22,6 +22,15 @@ function toggleDarkMode() {
   }
 }
 
+//drop down menu
+function openMenu() {
+  document.body.classList.add("menu--open");
+}
+
+function closeMenu() {
+  document.body.classList.remove("menu--open");
+}
+
 // API Key for RapidAPI JSearch
 //const API_KEY = 'ak_ykts7xy35pjfj5jqsezjrhbdqvhdu4vf1sssty4s7dhrzgj';
 
@@ -46,22 +55,74 @@ async function searchChange(event) {
   }
 }
 
-const searchJobs = () => {
-  const searchInput = document.getElementById('job-search-input');
-  if (!searchInput || !searchInput.value) {
-    alert('Please enter a job search query');
+const searchJobs = async () => {
+  const textareas = document.querySelectorAll('.search-bar');
+  
+  if (!textareas || textareas.length === 0) {
+    alert('Error: Search form not found');
+    console.error('No .search-bar elements found');
     return;
   }
 
-  const query = searchInput.value;
-  searchChange({ target: { value: query } });
-};
+  const jobTitle = textareas.length > 0 && textareas[0] ? textareas[0].value.trim() : '';
+  const jobDetails = textareas.length > 1 && textareas[1] ? textareas[1].value.trim() : '';
+  const salary = textareas.length > 2 && textareas[2] ? textareas[2].value.trim() : '';
+  const location = textareas.length > 3 && textareas[3] ? textareas[3].value.trim() : '';
 
-function showSearchResults() {
-  query.innerHTML = showSearchResults.map(result => {
-    return `<div class="job-result">
-      <h3>${result.title}</h3>
-      <p>${result.company_name} - ${result.location}</p>
-      <a href="${result.job_link}" target="_blank">View Job</a>
-    </div>`;
-  }).join('');
+  const queryParts = [jobTitle, jobDetails, salary, location].filter(part => part.length > 0);
+  
+  if (queryParts.length === 0) {
+    alert('Please enter at least one search criteria');
+    return;
+  }
+
+  const query = queryParts.join(' ');
+
+  try {
+    const resultsContainer = document.getElementById('job-results-container');
+    if (!resultsContainer) {
+      alert('Error: Results container not found');
+      console.error('No #job-results-container element found');
+      return;
+    }
+    
+    resultsContainer.style.display = 'block';
+    resultsContainer.innerHTML = '<p>Loading job results...</p>';
+
+    const url = `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(query)}&page=1&num_pages=1&country=us&date_posted=all`;
+    const options = {
+      method: 'GET',
+      headers: {
+        'x-rapidapi-key': '01e4b7440cmsh2b61c116d432172p1b6401jsn405fdd030609',
+        'x-rapidapi-host': 'jsearch.p.rapidapi.com'
+      }
+    };
+
+    const response = await fetch(url, options);
+    const data = await response.json();
+    
+    console.log('Job Results:', data);
+
+    // Display results
+    if (data.data && data.data.length > 0) {
+      const resultsHTML = data.data.map(job => `
+        <div class="job-result">
+          <h3>${job.job_title || 'No Title'}</h3>
+          <p><strong>${job.employer_name || 'Unknown Company'}</strong></p>
+          <p>${job.job_location || 'Remote'}</p>
+          <p>${job.job_description?.substring(0, 200) || 'No description'}...</p>
+          <a href="${job.job_apply_link || '#'}" target="_blank" class="job-link">Apply Now</a>
+        </div>
+      `).join('');
+      
+      resultsContainer.innerHTML = `<h2>Job Results (${data.data.length})</h2>${resultsHTML}`;
+    } else {
+      resultsContainer.innerHTML = '<p>No jobs found. Try a different search.</p>';
+    }
+  } catch (error) {
+    console.error('Error searching jobs:', error);
+    const resultsContainer = document.getElementById('job-results-container');
+    resultsContainer.style.display = 'block';
+    resultsContainer.innerHTML = '<p>Error searching for jobs. Please try again.</p>';
+  }
+};
