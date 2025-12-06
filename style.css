@@ -685,7 +685,15 @@ body.dark #job-search {
   background-color: #e74c3c;
 }
 .loading__state {
-  visibility: hidden;
+  display: none;
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading__animation {
+  width: 500px !important;
+  height: 500px !important;
+  aspect-ratio: 1 / 1 !important;
 }
 /*
                                                          LEARNING

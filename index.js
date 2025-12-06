@@ -9,8 +9,18 @@ window.addEventListener('load', () => {
     const checkbox = document.querySelector('.virtual-btn');
     if (checkbox) checkbox.checked = true;
   }
-});
 
+  const searchInputs = document.querySelectorAll('.search-bar');
+  searchInputs.forEach(input => {
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        searchJobs();
+      }
+    });
+  });
+});
+//darrk mode
 function toggleDarkMode() {
   darkModeToggle = !darkModeToggle;
   if (darkModeToggle) {
@@ -80,14 +90,22 @@ const searchJobs = async () => {
 
   try {
     const resultsContainer = document.getElementById('job-results-container');
+    const loadingState = document.querySelector('.loading__state');
+    
     if (!resultsContainer) {
       alert('Error: Results container not found');
       console.error('No #job-results-container element found');
       return;
     }
-    
-    resultsContainer.style.display = 'block';
-    resultsContainer.innerHTML = '<p>Loading job results...</p>';
+
+    // show lottie
+    resultsContainer.style.display = 'none';
+    if (loadingState) {
+      loadingState.style.display = 'block';
+    }
+
+    //to results 
+    loadingState.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     const url = `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(query)}&page=1&num_pages=1&country=us&date_posted=all`;
     const options = {
@@ -102,8 +120,13 @@ const searchJobs = async () => {
     const data = await response.json();
     
     console.log('Job Results:', data);
+    
+    //hide lotie
+    if (loadingState) {
+      loadingState.style.display = 'none';
+    }
 
-    // Display results
+    // reults
     if (data.data && data.data.length > 0) {
       const resultsHTML = data.data.map(job => `
         <div class="job-result">
@@ -115,13 +138,19 @@ const searchJobs = async () => {
         </div>
       `).join('');
       
+      resultsContainer.style.display = 'block';
       resultsContainer.innerHTML = `<h2>Job Results (${data.data.length})</h2>${resultsHTML}`;
     } else {
+      resultsContainer.style.display = 'block';
       resultsContainer.innerHTML = '<p>No jobs found. Try a different search.</p>';
     }
   } catch (error) {
     console.error('Error searching jobs:', error);
     const resultsContainer = document.getElementById('job-results-container');
+    const loadingState = document.querySelector('.loading__state');
+    if (loadingState) {
+      loadingState.style.display = 'none';
+    }
     resultsContainer.style.display = 'block';
     resultsContainer.innerHTML = '<p>Error searching for jobs. Please try again.</p>';
   }
@@ -136,29 +165,4 @@ const searchJobs = async () => {
 
 
 
-/*function contact(event) {
-    event.preventDefault();
-    const form = document.querySelector("#contact__form");
-    const loading = document.querySelector(".modal__overlay--loading");
-    const success = document.querySelector(".modal__overlay--success");
-    
-    loading.classList.add("modal__overlay--visible");
-    form.style.display = "none"; // Hide the form immediately when showing loading
-
-    emailjs.sendForm(
-        "service_fl431en", 
-        "template_2e4bnci", 
-        event.target,
-        "HKypPWgOK6TsFhyt_")
-        .then(() => {
-            loading.classList.remove("modal__overlay--visible");
-            success.classList.add("modal__overlay--visible");
-            // Form stays hidden when showing success
-        })
-        .catch((error) => {
-            loading.classList.remove("modal__overlay--visible");
-            form.style.display = "block"; // Show form again if there's an error
-            console.error("EmailJS error:", error);
-            alert("the email service is temporarily unavailable. Please contact me directly at mitchellleahy046@gmail.com");
-        });*/
 
