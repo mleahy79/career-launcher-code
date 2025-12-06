@@ -126,3 +126,39 @@ const searchJobs = async () => {
     resultsContainer.innerHTML = '<p>Error searching for jobs. Please try again.</p>';
   }
 };
+
+
+
+
+
+
+
+
+
+
+/*function contact(event) {
+    event.preventDefault();
+    const form = document.querySelector("#contact__form");
+    const loading = document.querySelector(".modal__overlay--loading");
+    const success = document.querySelector(".modal__overlay--success");
+    
+    loading.classList.add("modal__overlay--visible");
+    form.style.display = "none"; // Hide the form immediately when showing loading
+
+    emailjs.sendForm(
+        "service_fl431en", 
+        "template_2e4bnci", 
+        event.target,
+        "HKypPWgOK6TsFhyt_")
+        .then(() => {
+            loading.classList.remove("modal__overlay--visible");
+            success.classList.add("modal__overlay--visible");
+            // Form stays hidden when showing success
+        })
+        .catch((error) => {
+            loading.classList.remove("modal__overlay--visible");
+            form.style.display = "block"; // Show form again if there's an error
+            console.error("EmailJS error:", error);
+            alert("the email service is temporarily unavailable. Please contact me directly at mitchellleahy046@gmail.com");
+        });*/
+
